@@ -37,17 +37,6 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-
-
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
@@ -73,6 +62,7 @@ class Hero {
         this.startY = (this.jump * 4) + 55; 
         this.x = this.startX;
         this.y = this.startY;
+        this.victory = false;
     }
 
     // Draw hero sprite on current x and y co-ordinate position
@@ -105,6 +95,27 @@ class Hero {
                 break;
         }
     } 
+
+    update() {
+        // Check collisioni here
+        for(let enemy of allEnemies) {
+            //Did player x and y collide with enemy?
+            if(this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2)) {
+                this.reset();
+            }            
+        }
+        // Check Win here
+        // did player x and y reach final tile?
+        if(this.y === -28) {
+            this.victory = true;;
+        }
+    }
+    // Reset Hero
+    reset() {
+        // Set x and y to the starting x and y
+        this.x = this.startX;
+        this.y = this.startY;
+    }
 }
 
 const player = new Hero();
