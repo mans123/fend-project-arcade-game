@@ -1,5 +1,6 @@
 // Enemies our player must avoid
-var Enemy = function(x, y, speed) {
+"use strict";
+const Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x;
@@ -40,7 +41,7 @@ Enemy.prototype.render = function() {
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
+    const allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
@@ -100,7 +101,7 @@ class Hero {
         // Check collisioni here
         for(let enemy of allEnemies) {
             //Did player x and y collide with enemy?
-            if(this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2)) {
+            if(this.y === enemy.y && (enemy.x + 75 > this.x && enemy.x < this.x + 75)) {
                 this.reset();
             }            
         }
@@ -119,9 +120,11 @@ class Hero {
 }
 
 const player = new Hero();
-const bug1 = new Enemy(-101, 0, 200);
-const bug2 = new Enemy(-101, 83, 300);
-const bug3 = new Enemy((-101 * 2.5), 83, 300);
-const bug4 = new Enemy((-101 * 1.5), 166, 250);
-const allEnemies = [];
-allEnemies.push(bug1, bug2, bug3, bug4);
+const allEnemies = [
+    new Enemy(-101, 0, 200),
+    new Enemy(-101, 83, 300),
+    new Enemy((-101 * 2.5), 83, 300),
+    new Enemy((-101 * 1.5), 166, 250)
+];
+
+
