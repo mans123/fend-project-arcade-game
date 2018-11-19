@@ -44,3 +44,21 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+// Create a Hero Class
+class Hero {
+    // Create a Constructor
+    constructor() {
+        this.x = 0;
+        this.y = 0;
+        this.sprite = 'images/char-boy.png';
+    }
+
+    // Draw hero sprite on current x and y co-ordinate position
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
+
+const player = new Hero();
