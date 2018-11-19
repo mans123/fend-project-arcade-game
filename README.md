@@ -6,8 +6,10 @@ This is a clone of the classic Frogger arcade game for Udacity's Front-End Devel
 
 ### 1. How to Run the game
 
-* Download the folder(repository).
-* Extract the zip file and open index.html in browser.
+* Play online [here](https://mans123.github.io/fend-project-arcade-game/). Or,
+* Play Offline
+    * Download the folder(repository).
+    * Extract the zip file and open index.html in browser.
 
 ### 2. How to play the Game
 
