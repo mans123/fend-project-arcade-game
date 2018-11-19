@@ -7,7 +7,7 @@ var Enemy = function(x, y, speed) {
     this.speed = speed;
     this.step = 101;
     this.boundary = this.step * 5;
-    this.resetPos = -this.step;
+    this.resetPos = x;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
